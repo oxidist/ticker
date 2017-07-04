@@ -21,4 +21,4 @@ class Ticker(object):
 t = Ticker("a582288c6e954288a1ce26f79ad42123", "the-next-web")
 news = t.getNews()
 for i in news:
-    print ( "{} \n".format(i) )
+    print ( "{} | ".format(i) )
