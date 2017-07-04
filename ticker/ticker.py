@@ -23,7 +23,7 @@ class Ticker(object):
         else:
             return "not available"
     def parse(self, string):
-        return string = string.replace('’', "'").replace('‘',"'").replace("…","...")
+        return string.replace('’', "'").replace('‘',"'").replace("…","...")
 
 
 t = Ticker("a582288c6e954288a1ce26f79ad42123", "the-next-web")
