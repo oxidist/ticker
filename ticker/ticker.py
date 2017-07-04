@@ -14,11 +14,19 @@ class Ticker(object):
         if newsInJSON['status'] == 'ok':
             for i in newsInJSON['articles']:
                 allNews.append(i['title'])
-            return allNews
+
+            theNews = ""
+            for i in allNews:
+                theNews += "{} | ".format(i)
+
+            return theNews
         else:
             return "not available"
+    def parse(self, string):
+        return string = string.replace('’', "'").replace('‘',"'").replace("…","...")
+
 
 t = Ticker("a582288c6e954288a1ce26f79ad42123", "the-next-web")
-news = t.getNews()
-for i in news:
-    print ( "{} | ".format(i) )
+
+news = t.parse(t.getNews())
+print (news)
