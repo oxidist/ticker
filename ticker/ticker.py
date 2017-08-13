@@ -8,9 +8,16 @@ class Ticker(object):
         self.key = key
         self.source = source
 
-    def getNews(self):
+    def get_news(self):
         allNews = []
-        newsInJSON = r.get("https://newsapi.org/v1/articles?source=" + self.source + "&sortBy=latest&apiKey=" + self.key).json()
+        newsInJSON = \
+        r.get(
+            "https://newsapi.org/v1/articles?source=" \
+            + self.source \
+            + "&sortBy=latest&apiKey="\
+            + self.key
+              ).json()
+
         if newsInJSON['status'] == 'ok':
             for i in newsInJSON['articles']:
                 allNews.append(i['title'])
@@ -28,5 +35,5 @@ class Ticker(object):
 
 t = Ticker("a582288c6e954288a1ce26f79ad42123", "the-next-web")
 
-news = t.parse(t.getNews())
+news = t.parse(t.get_news())
 print (news)
